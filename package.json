@@ -3,17 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-plugin-relay": "^1.7.0",
+    "graphql": "^14.0.2",
     "materialize-css": "^1.0.0",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "relay-compiler": "^1.7.0",
+    "relay-runtime": "^1.7.0",
+    "subscriptions-transport-ws": "^0.9.15"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "node ./setupRelay && react-scripts start",
+    "build": "node ./setupRelay && react-scripts build",
+    "test": "node ./setupRelay && react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -31,5 +36,10 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "enzyme-to-json": "^3.3.5",
     "flow-bin": "^0.89.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
